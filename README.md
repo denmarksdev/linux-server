@@ -161,7 +161,7 @@ from app.sample_data import create as create_sample_data
 
 create_sample_data()
 ```
-14. Create **WSGI** configuration file
+14. Configure the virtual host
     - `sudo nano /etc/apache2/sites-available/CatalogApp.conf`
 ```
 <VirtualHost *:80>
