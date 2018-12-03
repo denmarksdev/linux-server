@@ -125,7 +125,7 @@ PermitRootLogin no
     - `cd \var\www\CatalogApp`
 1. Cloning the Project Catalog Item
     - `sudo git clone https://github.com/denmarksdev/catalog.git`
-1. Install Viral Python Environment
+1. Install Virtual Python Environment
     - `sudo virtualenv venv --always-copy`
 1. Activate the virtual environment
     - `source venv/bin/activate`
