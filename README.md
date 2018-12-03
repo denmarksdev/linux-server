@@ -1,7 +1,7 @@
 # Linux Server Configuration
 How to configures a Linux server to run web applications in a secure environment.
 
-This configuration uses the [Catalog Item project](https://github.com/denmarksdev/linux-server) to create a **Python WSGI application**
+This configuration uses the [Catalog Item project](https://github.com/denmarksdev/catalog) to create a **Python WSGI application**
 
 # Application URL
 - Public IP **35.199.122.175**
