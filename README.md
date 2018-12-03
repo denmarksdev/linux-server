@@ -190,6 +190,6 @@ create_sample_data()
    
   - [Google Cloud](https://cloud.google.com/)
   - [git](https://git-scm.com/) the version control system  
-  - [Flask with apache](http://flask.pocoo.org/docs/1.0/deploying/mod_wsgi/)
+  - [Flask with Apache](http://flask.pocoo.org/docs/1.0/deploying/mod_wsgi/)
   - [How To Deploy a Flask Application on an Ubuntu VPS](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
   
