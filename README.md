@@ -14,7 +14,7 @@ This configuration uses the [Catalog Item project](https://github.com/denmarksde
     - I am  using the [Google Cloud service](https://cloud.google.com/)  
 1.  Follow the Linux SSH configuration instructions.
 1.  Update all installed packages
-1.  Change the default port SSH **22** to **200** add the firewall rule.
+1.  Change the default port SSH **22** to **2200** add the firewall rule.
     - add the firewall rule in **VPN NETWORK** option on **Google AppEngine**
 1.  Configure **Uncomplicated Firewall (UFW)** to only allow connections:
     - SSH **2200**
@@ -55,7 +55,7 @@ This configuration uses the [Catalog Item project](https://github.com/denmarksde
     - `sudo chmod 744 .ssh`
 1. Change permissions for authorized_keys
     - `sudo chmod 644 .ssh/autthorized_keys`
-1. Close the Google Cloud Shell and log in to your local environment with a previously generated key
+1. Close the **Google Cloud Shell** and log in to your local environment with a previously generated key
     - `ssh grader@35.199.122.175 -i grader` grader is the private key 
 ## 2 - Security
 
@@ -95,6 +95,8 @@ Port 2200
 PermitRootLogin no
 ...
 ```	
+4. Restart the **SSH** service
+- `sudo service ssh restart`
 
 ## 3 - Implement the project
 
@@ -109,7 +111,7 @@ PermitRootLogin no
     - `sudo apt-get install postgresql`
 ### 2 - Postgresql
 1. Install the Postgresql
-    - sudo -u postgres psql postgres
+    - ` sudo -u postgres psql postgres`
 1. Create the database and user catalog
     - `create database catalog;`
     - `create user catalog with password 'somePass'`
@@ -132,9 +134,9 @@ PermitRootLogin no
 1. Installing the PostgreSQL Provider
     - `pip install psycopg2-binary`
 1. Move the app folder to /var/www/CatalogApp
-    - `sudo mv /catalog/app` ./
+    - `sudo mv /catalog/app  ./`
 1. Move the config.py folder to /var/www/CatalogApp
-    - `sudo mv /catalog/config.py` ./
+    - `sudo mv /catalog/config.py  ./`
 1. In the configuration file change the provider of the bank and the public address
 ```
 SQLALCHEMY_DATABASE_URI = 'postgresql://catalog:somePass@localhost/catalog'
