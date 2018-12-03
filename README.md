@@ -1,9 +1,17 @@
 # Linux Server Configuration
-How to configures a linux server to run web applications in a secure environment.
+How to configures a Linux server to run web applications in a secure environment.
+
+This configuration uses the [Catalog Item project](https://github.com/denmarksdev/linux-server) to create a **Python WSGI application**
+
+# Application URL
+- Public IP **35.199.122.175**
+- <a href='http://35.199.122.175/catalog/' target='_blank'>Catalog item web app</a> 
+
+**Notice:** The app is hosted on a [Google Cloud](https://cloud.google.com/), and may be unavailable after the trial period
 
 # Requirements
 1.  Use cloud service to create an instance of the Ubuntu Linux server. 
-    - I am  using the Google Cloud service 
+    - I am  using the [Google Cloud service](https://cloud.google.com/)  
 1.  Follow the Linux SSH configuration instructions.
 1.  Update all installed packages
 1.  Change the default port SSH **22** to **200** add the firewall rule.
@@ -47,11 +55,11 @@ How to configures a linux server to run web applications in a secure environment
     - `sudo chmod 744 .ssh`
 1. Change permissions for authorized_keys
     - `sudo chmod 644 .ssh/autthorized_keys`
-1. Close the Google Clound Shell and log in to your local environment with a previously generated key
+1. Close the Google Cloud Shell and log in to your local environment with a previously generated key
     - `ssh grader@35.199.122.175 -i grader` grader is the private key 
 ## 2 - Security
 
- **ATTENTION:** In the Goggle compute engine, change the default **default-allow-ssh** port to **2200**
+ **ATTENTION:** In the Google compute engine, change the default **default-allow-ssh** port to **2200**
       - If you do not do this, you will not be able to communicate through ssh
 
 1. Configure o **Uncomplicated Firewall (UFW)**
@@ -92,8 +100,8 @@ PermitRootLogin no
 
 ### 1 - The Apache server
 
-1. Set the time for utc,
-    - `sudo dpkg-reconfigure tzdata` select none of above and utc.
+1. Set the time for **UTC**,
+    - `sudo dpkg-reconfigure tzdata` select none of above and **UTC**.
 1. Install apache and wsgi
     - `sudo apt-get install apache2`
     - `sudo apt-get install libapache2-mod-wsgi`
@@ -132,9 +140,9 @@ PermitRootLogin no
 SQLALCHEMY_DATABASE_URI = 'postgresql://catalog:somePass@localhost/catalog'
 PUBLIC_URL = "http://35.199.122.175"
 ```
-12. Changing static Image folder permissions
+12. Changing **static Image folder** permissions
     - `sudo ssh chmod 747 app\static\images`
-13. Create the application's wsgi file
+13. Create the application's **WSGI** file
     - `sudo nano catalogapp.wsgi`
 ```
 #!/usr/bin/python
@@ -151,7 +159,7 @@ from app.sample_data import create as create_sample_data
 
 create_sample_data()
 ```
-14. Create wsgi configuration file
+14. Create **WSGI** configuration file
     - `sudo nano /etc/apache2/sites-available/CatalogApp.conf`
 ```
 <VirtualHost *:80>
@@ -181,5 +189,5 @@ create_sample_data()
   - [Google Cloud](https://cloud.google.com/)
   - [git](https://git-scm.com/) the version control system  
   - [Flask with apache](http://flask.pocoo.org/docs/1.0/deploying/mod_wsgi/)
-  
+  - [How To Deploy a Flask Application on an Ubuntu VPS](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
   
