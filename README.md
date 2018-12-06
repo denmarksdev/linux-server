@@ -7,7 +7,12 @@ This configuration uses the [Catalog Item project](https://github.com/denmarksde
 - Public IP **35.199.122.175**
 - <a href='http://35.199.122.175/catalog/' target='_blank'>Catalog item web app</a> 
 
-**Notice:** The app is hosted on a [Google Cloud](https://cloud.google.com/), and may be unavailable after the trial period
+## Notice 
+
+The app is hosted on a [Google Cloud](https://cloud.google.com/), and may be unavailable after the trial period
+
+The third party sign **Google** and **Facebook** **not work**, because the **Google** need **valid domain name** not an IP address number and the **Facebook** require **HTTPS protocol**. Only works in a localhost environment. 
+
 
 # Requirements
 1.  Use cloud service to create an instance of the Ubuntu Linux server. 
